@@ -36,7 +36,7 @@ app.get("/auth/google/callback",
   }),
   (req, res) => {
     // success — redirect back to React app
-    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
+    res.redirect(`${process.env.CLIENT_URL}/`);
   }
 );
 
@@ -55,3 +55,5 @@ app.post("/auth/logout", (req, res) => {
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
+
+

@@ -3,6 +3,7 @@ import "./auth.css";
 
 function Auth() {
   const [signin, setsignin] = useState(true);
+  const[logined , setlogined] = useState(false);
 
   return (
     <div className="auth-page">
