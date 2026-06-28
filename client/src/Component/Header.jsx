@@ -2,7 +2,30 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import { useEffect , useState } from "react";
 function Header() {
-  const [scroll , setScroll] = useState(false);
+
+
+
+   const [scroll , setScroll] = useState(false);
+   const [signup , setsignup] = useState(false);
+
+   useEffect(()=>{
+    fetch("http://localhost:5000/auth/me" , {
+      credentials: "include",
+    })
+   })
+  const handleLogout = async () => {
+  try {
+    await fetch("http://localhost:5000/auth/logout", {
+      method: "POST",
+      credentials: "include", // required — sends the session cookie
+    });
+    window.location.href = "/dashboard"; // or wherever you want to redirect after
+  } catch (err) {
+    console.error("Logout failed:", err);
+  }
+};
+
+ 
 
     useEffect(
       ()=>{
@@ -80,9 +103,9 @@ function Header() {
             </li>
           </ul>
           <div className="auth-buttons">
-           <Link to= "/auth">
-           <button className="btn-primary">Sign Up</button>
-           </Link> 
+           {/* <Link to= "/auth"> */}
+           <button className="btn-primary" onClick={handleLogout}>Sign Up</button>
+           {/* </Link>  */}
           </div>
         </nav>
       </header>

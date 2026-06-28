@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   authProvider: { type: String, enum: ["local", "google"], default: "local" },
+  picture:{type:string},
   password: { type: String }, // optional now, only for local auth
 }, { timestamps: true });
 

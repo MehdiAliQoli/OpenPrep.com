@@ -33,17 +33,19 @@ passport.use(
               email: profile.emails[0].value,
               firstName: profile.name.givenName,
               lastName: profile.name.familyName,
+              picture:profile.picture,
               authProvider: "google",
             });
           }
         }
-
+        console.log(profile);
         return done(null, user); // success — pass user along
       } catch (err) {
         return done(err, null);
       }
     },
   ),
+
 );
 
 // These two control what gets stored in the session cookie

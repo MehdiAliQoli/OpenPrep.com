@@ -51,6 +51,7 @@ app.get("/auth/me", (req, res) => {
 app.post("/auth/logout", (req, res) => {
   req.logout(() => {
     res.json({ message: "Logged out" });
+    console.log("log_out")
   });
 });
 
